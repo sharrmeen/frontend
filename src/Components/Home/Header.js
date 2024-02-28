@@ -1,5 +1,6 @@
 import React from "react";
 import Search from "./Search";
+import Filter from "./Filter";
 
 const Header = () => {
 return (
@@ -11,6 +12,7 @@ return (
 
         <div className="search_filter">
             <Search/>
+            <Filter/>
         </div>
         
         
