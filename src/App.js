@@ -1,25 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+// import logo from './logo.svg';
+import "./App.css";
+import React from "react";
+//importing necessary components and function for routing
+import { createBrowserRouter,createRoutesFromElements,Route,RouterProvider } from "react-router-dom";
+
+import Main from "./Components/Home/Main"
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+
+  const router = createBrowserRouter(
+    createRoutesFromElements(
+      //defines a Route component that matches all paths "/" and renders the Main component
+      //exact properties ensurethat the route matches exactly what you gave in path
+      <Route path ="/" element={<Main/>} exact></Route>
+    )
+  );
+  return(
+     <div className="App">
+    {/* This ensures that the routing functionality is available throughout the application */}
+    <RouterProvider router={router} />
+  </div>
   );
 }
+
 
 export default App;
