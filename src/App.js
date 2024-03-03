@@ -1,10 +1,12 @@
 // import logo from './logo.svg';
 import "./App.css";
 import React from "react";
+import PropertyList from "./Components/Home/PropertyList";
 //importing necessary components and function for routing
 import { createBrowserRouter,createRoutesFromElements,Route,RouterProvider } from "react-router-dom";
 
 import Main from "./Components/Home/Main"
+
 
 function App() {
 
@@ -12,7 +14,10 @@ function App() {
     createRoutesFromElements(
       //defines a Route component that matches all paths "/" and renders the Main component
       //exact properties ensurethat the route matches exactly what you gave in path
-      <Route path ="/" element={<Main/>} exact></Route>
+      <Route path ="/" element={<Main/>} exact>
+      <Route path="/" element={<PropertyList/>}exact/>
+      </Route>
+
     )
   );
   return(
