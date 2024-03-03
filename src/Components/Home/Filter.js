@@ -28,7 +28,7 @@ const Filter = () => {
     {isModalOpen && (<FilterModal
         selectedFilters={selectedFilters}
         onFilterChange={handleFilterChange}
-        onclose={handleCloseModal}
+        onClose={handleCloseModal}
     
     />)}
 
