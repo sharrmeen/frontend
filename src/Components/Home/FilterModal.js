@@ -114,7 +114,7 @@ const FilterModal = ({selectedFilters,onFilterChange,onClose }) => {
 
         //amenities options
 
-        const amenitiesOPtion=[
+        const amenitiesOPtions=[
             {
                 value:"Wifi",
                 label:"Wifi ",
@@ -180,7 +180,7 @@ const FilterModal = ({selectedFilters,onFilterChange,onClose }) => {
 
         //function to handle changes in property type
 
-        const handlePropertyChange=(selectedType)=>{
+        const handlePropertyTypeChange=(selectedType)=>{
             setPropertyType((prevType)=>
             prevType===selectedType ? "":selectedType);
         }
@@ -191,12 +191,6 @@ const FilterModal = ({selectedFilters,onFilterChange,onClose }) => {
             setPropertyType((prevType)=>
             prevType===selectedType ? "":selectedType);
         };
-
-
-
-
-
-
     
         return <div className='modal-backdrop'>
             <div className='modal-content'>
@@ -247,7 +241,7 @@ const FilterModal = ({selectedFilters,onFilterChange,onClose }) => {
                                 key={options.value}
                                 className={`selectable-box ${propertyType===options.value? "selected" : ""
                                 }` }
-                                onClick={()=>handlePropertyChange(options.value)} 
+                                onClick={()=>handlePropertyTypeChange(options.value)} 
                                 >
 
                                     <span className='material-icons'>{options.icon}</span>
@@ -259,13 +253,66 @@ const FilterModal = ({selectedFilters,onFilterChange,onClose }) => {
                         </div>
                     </div>
 
+                    {/* Room Type Filter */}
+
+                    <div className='filter-section'>
+                        <label>Room Type: </label>
+                        <div className='icon-box'>
+                            {roomTypeOptions.map((option)=>(
+                                <div 
+                                key={option.value}
+                                className={`selectable-box ${roomType===option.value? "selected" : ""
+                                }` }
+                                onClick={()=>handleRoomTypeChange(option.value)} 
+                                >
+
+                                    <span className='material-icons'>{option.icon}</span>
+                                    <span>{option.label}</span>
+
+                                </div>
+                            ))}
+                    </div>
                 </div>
 
+                {/* Amenities Filter */}
 
+                <div className='filter-section'>
+                    <label>Amenities: </label>
+                    <div className='amenities-checkboxes'>
+                        {amenitiesOPtions.map((option)=>(
+                            <div key={option.value} className='amenity-checkbox'>
+                               {console.log(amenities.includes(option.value))}
+                               <input
+                                type='checkbox'
+                                value={option.value}
+                                checked={amenities.includes(option.value)}
+                                onChange={()=>handleAmenitiesChange(option.value)}
+                               
+                               /> 
 
+                               <span className='material-icons amenitieslabel'>
+                                {option.icon}
+                               </span>
+                               <span>
+                                {option.label}
+                               </span>
+                                
+                            </div>
+
+                        ))}
+                    </div>
+                </div>
+
+                    {/* Filter Action Buttons */}
+                    <div className='filter-buttons'>
+                        <button className='clear-button' 
+                        onClick={handleClearFilters}
+                        >Clear</button>
+                    </div>
 
             </div>
         </div>
+    </div>
   
 }
 
