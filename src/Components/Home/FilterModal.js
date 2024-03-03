@@ -180,7 +180,7 @@ const FilterModal = ({selectedFilters,onFilterChange,onClose }) => {
 
         //function to handle changes in property type
 
-        const handlePropertyChange=(selectedType)=>{
+        const handlePropertyTypeChange=(selectedType)=>{
             setPropertyType((prevType)=>
             prevType===selectedType ? "":selectedType);
         }
@@ -247,7 +247,7 @@ const FilterModal = ({selectedFilters,onFilterChange,onClose }) => {
                                 key={options.value}
                                 className={`selectable-box ${propertyType===options.value? "selected" : ""
                                 }` }
-                                onClick={()=>handlePropertyChange(options.value)} 
+                                onClick={()=>handlePropertyTypeChange(options.value)} 
                                 >
 
                                     <span className='material-icons'>{options.icon}</span>
