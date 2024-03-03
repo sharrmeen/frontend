@@ -135,7 +135,7 @@ const FilterModal = ({selectedFilters,onFilterChange,onClose }) => {
 
             {
                 value:"Washing Machine",
-                label:"Washing MAchine",
+                label:"Washing Machine",
                 icon:"local_laundry_services",
             },
 
@@ -162,7 +162,7 @@ const FilterModal = ({selectedFilters,onFilterChange,onClose }) => {
         //function to clear filters
 
         const handleClearFilters=()=>{
-            setPriceRange({min:600,max:30000})
+            setPriceRange({min:600,max:30000});
             setPropertyType("");
             setRoomType("");
             setAmenities([]);
@@ -308,12 +308,20 @@ const FilterModal = ({selectedFilters,onFilterChange,onClose }) => {
                         <button className='clear-button' 
                         onClick={handleClearFilters}
                         >Clear</button>
-                    </div>
 
+                        <button onClick={handleFilterChange}>Apply Filters</button>
+                    </div>
             </div>
         </div>
     </div>
   
 }
+
+FilterModal.propTypes={
+    selectedFilters:PropTypes.object.isRequired,
+    onFilterChange:PropTypes.func.isRequired,
+    onClose:PropTypes.func.isRequired,
+};
+
 
 export default FilterModal
