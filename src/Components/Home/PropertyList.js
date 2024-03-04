@@ -3,13 +3,13 @@ import React from 'react';
 const Card =({image,address,price,name})=>{
 
     return(<figure className='property'>
-        <img src={image} alt="propertyImage"/>
+        <img src={image} alt="Propertyimg"/>
         <h4>{name}</h4>
         <figcaption>
             <main className='propertydetails'>
                 <h5>{name}</h5>
                 <h6>
-                <span class="material-symbols-outlined">home_pin</span>
+                <span class="material-symbols-outlined houseicon">home_pin</span>
                 {address}
                 </h6>
                 <p>
@@ -43,7 +43,7 @@ const PropertyList = () => {
 
     ];
   return (
-    <div className='propertyList'>
+    <div className='propertylist'>
         {cardsData.map((card)=>(
             <Card
                 key={card.id}
