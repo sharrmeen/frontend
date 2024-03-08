@@ -1,4 +1,10 @@
-import React from 'react';
+import React,{ useEffect,useState } from 'react';
+import { useDispatch,useSelector } from 'react-redux';
+import { getAllProperties } from '../../Store/Property/property-action';
+import { propertyAction } from '../../Store/Property/property-slice';
+
+
+
 
 const Card =({image,address,price,name})=>{
 
@@ -24,24 +30,12 @@ const Card =({image,address,price,name})=>{
 }
 
 const PropertyList = () => {
-    const cardsData=[
-        {
-            id:1,
-            image:"/assets/image1.jpeg",
-            name:"House Manali",
-            address:"Manali,Himachal Pradesh,India",
-            price:1999,
-        },
-        {
-            id:1,
-            image:"/assets/property2.webp",
-            name:"Eden Villa",
-            address:"Manori,Goa,India",
-            price:2999,
-        },
+  
+    const [currentPage,setCurrentPage]=useState({page:1});
+    const {properties,totalProperties}=useSelector(
+        (state)=>state.properties
+    )
 
-
-    ];
   return (
     <div className='propertylist'>
         {cardsData.map((card)=>(
