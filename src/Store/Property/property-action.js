@@ -10,7 +10,7 @@ export const getAllProperties =()=>async(dispatch,getState)=>{
 
         const{SearchParams}=getState().properties
 
-        const response = await axios.get(`/api/rent/listing`,{
+        const response = await axios.get(`/api/v1/rent/listing`,{
             params:{...SearchParams},
         });
 

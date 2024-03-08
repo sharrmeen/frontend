@@ -47,17 +47,25 @@ const PropertyList = () => {
   },[currentPage,dispatch]);
 
   return (
-    <div className='propertylist'>
-        {cardsData.map((card)=>(
-            <Card
-                key={card.id}
-                image={card.image}
-                name={card.name}
-                address={card.address}
-                price={card.price}
-            />
-        ))}
-    </div>
+    <>
+        properties.length==0?(
+            <p className='not_found'>"Property not found"</p>
+        ):(
+            <div className='propertylist'>
+            {properties.map((property)=>(
+                <Card
+                    key={property._id}
+                    id={property._id}
+                    image={property.images[0].url}
+                    name={property.propertyName}
+                    address={`${property.address.city},${property.address.state},${property.address.pincode}`}
+                    price={property.price}
+                />
+            ))}
+        </div>
+        )
+    </>
+    
   )
 }
 
