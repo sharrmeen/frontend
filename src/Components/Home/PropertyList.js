@@ -3,9 +3,6 @@ import { useDispatch,useSelector } from 'react-redux';
 import { getAllProperties } from '../../Store/Property/property-action';
 import { propertyAction } from '../../Store/Property/property-slice';
 
-
-
-
 const Card =({image,address,price,name})=>{
 
     return(<figure className='property'>
@@ -34,7 +31,20 @@ const PropertyList = () => {
     const [currentPage,setCurrentPage]=useState({page:1});
     const {properties,totalProperties}=useSelector(
         (state)=>state.properties
-    )
+    );
+
+  const lastpage=Math.ceil(totalProperties/12);
+  const dispatch =useDispatch();
+  
+  useEffect(()=>{
+    const fetchProperties = async(page) => {
+        dispatch(propertyAction.updateSearchParams(page));
+        dispatch(getAllProperties());
+    };
+
+        fetchProperties(currentPage);
+
+  },[currentPage,dispatch]);
 
   return (
     <div className='propertylist'>
