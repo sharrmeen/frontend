@@ -4,9 +4,9 @@ import { useDispatch, useSelector} from "react-redux";
 import { useParams } from "react-router-dom";
 import { getPropertyDetails } from "../../Store/PropertyDetails/propertyDetails-action";
 import PropertyImg from "./PropertyImg";
-// import PropertyAmenities from "./PropertyAmenities";
-// import BookingForm from "./BookingForm";
-// import MapComponent from "./MapComponent";
+import PropertyAmenities from "./PropertyAmenities";
+import BookingForm from "./BookingForm";
+import MapComponent from "./MapComponent";
 
 const  PropertyDetails = () => {
     const dispatch = useDispatch();
@@ -22,12 +22,12 @@ const  PropertyDetails = () => {
         propertyName, 
         address, 
         images, 
-        // description,
-        // maximumGuest,
-        // amenities,
-        // price, 
-        // currentBookings, 
-        // extraInfo,
+        description,
+        maximumGuest,
+        amenities,
+        price, 
+        currentBookings, 
+        extraInfo,
       } = propertydetails;
   return (
     <div className="property-container">
@@ -41,20 +41,19 @@ const  PropertyDetails = () => {
                            
                 </h6>
                 <PropertyImg images={images} />
-                {/* <PropertyImg images={images} />
                <div className="middle-container row">
                 <div className="des-and-amenities col-md-8 col-sm-12 col-12">
                   <h2 className="property-description-header">Description</h2>
                   <p className="property-description">
                     {description} <br /><br />
-                    maximum number of guests: {maximumGuest} 
+                    Maximum number of guests: {maximumGuest} 
                   </p>
                   <hr />
                   <PropertyAmenities amenities={amenities} />
-                  <br/>
+                  <br/><br/>
                 </div >
-
-                <div className="property-payment col-md-4 col-sm-12 col-12">
+                
+                 <div className="property-payment col-md-4 col-sm-12 col-12">
                 <BookingForm 
                 propertyId = {id}
                 price = {price}
@@ -78,7 +77,7 @@ const  PropertyDetails = () => {
                     <p className="extra-description">{extraInfo}</p>
                   </div>
                 </div>
-               </div> */}
+               </div> 
              </>
             )}
     </div>
