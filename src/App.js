@@ -27,6 +27,8 @@ import ResetPassword from "./Components/User/ResetPassword";
 import Payment from "./Components/Payment/Payment";
 import {Elements} from "@stripe/react-stripe-js";
 import{loadStripe} from "@stripe/stripe-js";
+import MyBookings from "./Components/Mybookings/MyBookings";
+import BookingDetails from "./Components/Mybookings/BookingDetails"
 
 function App() {
   const stripePromise = loadStripe("pk_test_51Oz2RMSFLN6uvgB67IeJrF8yXg05k3NFz48W8FLK0AJwjydFZdsVBUj00RHedx5XnTuokur8DejtzMTLP4ZocY4W00u8BS95Kj")
@@ -67,6 +69,11 @@ function App() {
         
         }
         />
+
+        <Route id="mybookings" path="user/booking" element={<MyBookings/>} />
+        <Route id="bookingdetails" path="user/booking/:bookingId" element={<BookingDetails/>} />
+
+
       </Route>
     )
   );
