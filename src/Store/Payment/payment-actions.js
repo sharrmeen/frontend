@@ -1,6 +1,7 @@
 import { setPaymentDetails } from "./payment-slice";
 import { CardNumberElement } from "@stripe/react-stripe-js";
 import axios from "axios";
+import { createBooking } from "../Booking/booking-action";
 
 export const processPayment = ({
   totalAmount,
@@ -52,6 +53,19 @@ export const processPayment = ({
           card: cardNumberElement,
         },
       });
+
+      dispatch(
+        createBooking({
+          booking:bookingId,
+          property:propertyId,
+          price:totalAmount,
+          guests:maximumGuest,
+          fromDate:checkinDate,
+          toDate: checkoutDate,
+          nights,
+        })
+      );
+
       dispatch(
         setPaymentDetails({
           checkinDate,
