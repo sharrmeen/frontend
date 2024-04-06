@@ -20,6 +20,7 @@ import { currentUser } from "./Store/User/user-action";
 import { userActions } from "./Store/User/user-slice";
 import Signup from "./Components/User/Signup";
 import Profile from "./Components/User/Profile";
+import EditProfile from "./Components/User/EditProfile";
 
 function App() {
   const dispatch = useDispatch();
@@ -48,6 +49,8 @@ function App() {
         <Route id='login' path='login' element={<Login />} />
         <Route id='signup' path='signup' element={<Signup />} />
         <Route id ="profile" path="profile" element={<Profile/>}/>
+        <Route id ="editprofile" path="editprofile"element={<EditProfile/>}/>
+
       </Route>
     )
   );
