@@ -18,7 +18,8 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { currentUser } from "./Store/User/user-action";
 import { userActions } from "./Store/User/user-slice";
-// import Signup from "./Components/User/Signup";
+import Signup from "./Components/User/Signup";
+import Profile from "./Components/User/Profile";
 
 function App() {
   const dispatch = useDispatch();
@@ -45,7 +46,8 @@ function App() {
           exact
         />
         <Route id='login' path='login' element={<Login />} />
-        {/* <Route id='signup' path='signup' element={<Signup />} /> */}
+        <Route id='signup' path='signup' element={<Signup />} />
+        <Route id ="profile" path="profile" element={<Profile/>}/>
       </Route>
     )
   );

@@ -41,7 +41,7 @@ const Signup = () => {
         }
         else if(isAuthenticated){
             navigate("/")
-            toast.success("User logged in successfully")
+            toast.success("User has logged in successfully")
         }
     },[dispatch,isAuthenticated,errors,navigate])
   return (
